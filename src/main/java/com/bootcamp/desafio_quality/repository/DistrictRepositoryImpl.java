@@ -21,7 +21,7 @@ public class DistrictRepositoryImpl implements DistrictRepository{
     public District findDistrictByName(String name) {
         District result = database.get(name);
         if(result == null) {
-            throw new DistrictNotFoundException();
+            throw new DistrictNotFoundException(name);
         }
         return result;
     }

@@ -2,7 +2,7 @@ package com.bootcamp.desafio_quality.dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-public class ErrorMessageDTO {
+public class FieldValidationErrorMessageDTO {
 
     private String field;
 
@@ -12,7 +12,7 @@ public class ErrorMessageDTO {
     @JsonProperty("error_message")
     private String errorMessage;
 
-    public ErrorMessageDTO(String field, String rejectedValue, String errorMessage) {
+    public FieldValidationErrorMessageDTO(String field, String rejectedValue, String errorMessage) {
         this.field = field;
         this.rejectedValue = rejectedValue;
         this.errorMessage = errorMessage;
