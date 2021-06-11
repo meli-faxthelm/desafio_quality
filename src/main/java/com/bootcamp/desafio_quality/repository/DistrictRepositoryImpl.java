@@ -7,9 +7,9 @@ import org.springframework.stereotype.Repository;
 import java.util.Map;
 
 @Repository
-public class DistrictServiceImpl implements DistrictRepository{
+public class DistrictRepositoryImpl implements DistrictRepository{
 
-    final static Map<String, District> database = Map.of(
+    private final Map<String, District> database = Map.of(
             "Moema", new District("Moema", 2000.0),
             "Brooklin", new District("Brooklin", 3000.0),
             "Faria Lima", new District("Faria Lima", 5000.0),
@@ -18,7 +18,7 @@ public class DistrictServiceImpl implements DistrictRepository{
 
 
     @Override
-    public District getDistrictByName(String name) {
+    public District findDistrictByName(String name) {
         District result = database.get(name);
         if(result == null) {
             throw new DistrictNotFoundException();

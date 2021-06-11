@@ -27,6 +27,12 @@ public class RoomDTO {
     public RoomDTO() {
     }
 
+    public RoomDTO(String roomName, double roomWidth, double roomLength) {
+        this.roomName = roomName;
+        this.roomWidth = roomWidth;
+        this.roomLength = roomLength;
+    }
+
     public String getRoomName() {
         return roomName;
     }

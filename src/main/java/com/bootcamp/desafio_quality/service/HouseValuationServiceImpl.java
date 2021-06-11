@@ -39,7 +39,7 @@ public class HouseValuationServiceImpl implements HouseValuationService {
     }
 
     private double calculatePrice(double propSqft, String district) {
-        return districtRepository.getDistrictByName(district).getSqftPrice() * propSqft;
+        return districtRepository.findDistrictByName(district).getSqftPrice() * propSqft;
     }
 
     private RoomDTO calculateLargestRoom(List<RoomDTO> rooms) {

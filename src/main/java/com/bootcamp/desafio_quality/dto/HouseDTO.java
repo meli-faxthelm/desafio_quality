@@ -31,6 +31,12 @@ public class HouseDTO {
     public HouseDTO() {
     }
 
+    public HouseDTO(String name, String propDistrict, List<RoomDTO> propRooms) {
+        this.name = name;
+        this.propDistrict = propDistrict;
+        this.propRooms = propRooms;
+    }
+
     public String getName() {
         return name;
     }
