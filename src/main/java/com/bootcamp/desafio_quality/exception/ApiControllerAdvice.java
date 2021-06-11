@@ -1,5 +1,6 @@
 package com.bootcamp.desafio_quality.exception;
 
+import com.bootcamp.desafio_quality.dto.ErrorMessageDTO;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.FieldError;
@@ -7,16 +8,19 @@ import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @ControllerAdvice
 public class ApiControllerAdvice {
 
     @ExceptionHandler(MethodArgumentNotValidException.class)
-    protected ResponseEntity<String> handleValidationException(MethodArgumentNotValidException exception) {
-        StringBuilder sb = new StringBuilder();
+    protected ResponseEntity<List<ErrorMessageDTO>> handleValidationException(MethodArgumentNotValidException exception) {
+        List<ErrorMessageDTO> errors = new ArrayList<>();
         for(FieldError ex : exception.getBindingResult().getFieldErrors()) {
-            sb.append(ex.getDefaultMessage() + "\n");
+            errors.add(new ErrorMessageDTO(ex.getField(),ex.getRejectedValue().toString(),ex.getDefaultMessage()));
         }
-        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(sb.toString());
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(errors);
     }
 
     @ExceptionHandler(DistrictNotFoundException.class)
