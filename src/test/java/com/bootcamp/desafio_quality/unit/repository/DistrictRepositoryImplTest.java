@@ -1,7 +1,9 @@
-package com.bootcamp.desafio_quality.repository;
+package com.bootcamp.desafio_quality.unit.repository;
 
 import com.bootcamp.desafio_quality.exception.DistrictNotFoundException;
 import com.bootcamp.desafio_quality.model.District;
+import com.bootcamp.desafio_quality.repository.DistrictRepository;
+import com.bootcamp.desafio_quality.repository.DistrictRepositoryImpl;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

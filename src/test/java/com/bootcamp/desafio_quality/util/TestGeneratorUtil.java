@@ -17,4 +17,33 @@ public class TestGeneratorUtil {
         return new HouseDTO("Casa amarela", "Brooklin", propRooms);
     }
 
+    public static String getHouseWith3RoomsAsJson() {
+        return houseDTOToJson(getHouseWith3Rooms());
+    }
+
+    private static String houseDTOToJson(HouseDTO houseDTO) {
+        StringBuilder sb = new StringBuilder();
+        sb.append("{");
+        sb.append("\"prop_name\": \"");
+        sb.append(houseDTO.getPropName());
+        sb.append("\", \"prop_district\": \"");
+        sb.append(houseDTO.getPropDistrict());
+        sb.append("\", \"prop_rooms\": [");
+        for(RoomDTO roomDTO : houseDTO.getPropRooms()) {
+            sb.append("{ \"room_name\": \"");
+            sb.append(roomDTO.getRoomName());
+            sb.append("\", ");
+            sb.append("\"room_width\": ");
+            sb.append(roomDTO.getRoomWidth());
+            sb.append(", \"room_length\": ");
+            sb.append(roomDTO.getRoomLength());
+            sb.append(" },");
+        }
+        sb.deleteCharAt(sb.length()-1);
+        sb.append("]}");
+
+
+        return sb.toString();
+    }
+
 }

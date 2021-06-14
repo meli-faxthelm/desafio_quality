@@ -20,8 +20,6 @@ public class HouseValuationServiceImpl implements HouseValuationService {
         this.districtRepository = districtRepository;
     }
 
-    static Map<String, Double> districtPrices = new HashMap<>();
-
     @Override
     public HouseResponseDTO valuate(HouseDTO houseDTO) {
         HouseResponseDTO houseResponseDTO = new HouseResponseDTO();

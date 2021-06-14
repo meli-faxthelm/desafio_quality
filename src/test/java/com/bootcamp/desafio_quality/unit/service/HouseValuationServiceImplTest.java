@@ -1,4 +1,4 @@
-package com.bootcamp.desafio_quality.service;
+package com.bootcamp.desafio_quality.unit.service;
 
 import com.bootcamp.desafio_quality.dto.HouseDTO;
 import com.bootcamp.desafio_quality.dto.HouseResponseDTO;
@@ -6,6 +6,8 @@ import com.bootcamp.desafio_quality.dto.RoomDTO;
 import com.bootcamp.desafio_quality.model.District;
 import com.bootcamp.desafio_quality.repository.DistrictRepository;
 import com.bootcamp.desafio_quality.repository.DistrictRepositoryImpl;
+import com.bootcamp.desafio_quality.service.HouseValuationService;
+import com.bootcamp.desafio_quality.service.HouseValuationServiceImpl;
 import com.bootcamp.desafio_quality.util.TestGeneratorUtil;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
