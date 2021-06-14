@@ -18,7 +18,8 @@ public class ApiControllerAdvice {
     protected ResponseEntity<List<FieldValidationErrorMessageDTO>> handleValidationException(MethodArgumentNotValidException exception) {
         List<FieldValidationErrorMessageDTO> errors = new ArrayList<>();
         for(FieldError ex : exception.getBindingResult().getFieldErrors()) {
-            errors.add(new FieldValidationErrorMessageDTO(ex.getField(),ex.getRejectedValue().toString(),ex.getDefaultMessage()));
+            String rejectedValue = ex.getRejectedValue() !=  null ? ex.getRejectedValue().toString() : "";
+            errors.add(new FieldValidationErrorMessageDTO(ex.getField(), rejectedValue,ex.getDefaultMessage()));
         }
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(errors);
     }
